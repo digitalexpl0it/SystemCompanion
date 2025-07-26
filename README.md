@@ -65,10 +65,25 @@ System Companion consolidates scattered system monitoring and maintenance tools 
 
 ## Quick Start
 
+### Option 1: Ready-to-Use AppImage (Recommended)
+
+Download and run the portable AppImage - no installation required:
+
+```bash
+# Download the AppImage (if not already included)
+# The AppImage is included in the repository: System_Companion-0.1.0-x86_64.AppImage
+
+# Make executable and run
+chmod +x System_Companion-0.1.0-x86_64.AppImage
+./System_Companion-0.1.0-x86_64.AppImage
+```
+
+### Option 2: Development Setup
+
 ```bash
 # Clone the repository
-git clone https://github.com/DigitalExpl0it/system-companion.git
-cd system-companion
+git clone https://github.com/digitalexpl0it/SystemCompanion.git
+cd SystemCompanion
 
 # Run automated setup (recommended for fresh Ubuntu systems)
 ./scripts/setup_dev_environment.sh
@@ -110,8 +125,8 @@ For a fresh Ubuntu system, use our automated setup script:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/system-companion.git
-cd system-companion
+git clone https://github.com/digitalexpl0it/SystemCompanion.git
+cd SystemCompanion
 
 # Run the setup script (this will install all dependencies)
 ./scripts/setup_dev_environment.sh
@@ -123,8 +138,8 @@ cd system-companion
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/system-companion.git
-cd system-companion
+git clone https://github.com/digitalexpl0it/SystemCompanion.git
+cd SystemCompanion
 ```
 
 2. Check dependencies:
@@ -200,7 +215,20 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 ### AppImage Installation
 
-#### Build from Source
+#### Ready-to-Use AppImage (Included)
+
+The repository includes a ready-to-use AppImage that you can run immediately:
+
+```bash
+# The AppImage is included in the repository root
+chmod +x System_Companion-0.1.0-x86_64.AppImage
+./System_Companion-0.1.0-x86_64.AppImage
+```
+
+#### Build from Source (Optional)
+
+If you want to build your own AppImage:
+
 ```bash
 # Navigate to the AppImage directory
 cd packaging/appimage
@@ -309,8 +337,8 @@ This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) 
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/system-companion/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/system-companion/discussions)
+- **Issues**: [GitHub Issues](https://github.com/digitalexpl0it/SystemCompanion/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/digitalexpl0it/SystemCompanion/discussions)
 - **Documentation**: [docs/README.md](docs/README.md) - Complete documentation index
 
 ---

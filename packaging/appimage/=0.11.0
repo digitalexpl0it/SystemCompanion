@@ -1,0 +1,12 @@
+Collecting psutil
+  Using cached psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+Collecting py-cpuinfo
+  Using cached py_cpuinfo-9.0.0-py3-none-any.whl.metadata (794 bytes)
+Collecting GPUtil
+  Using cached gputil-1.4.0-py3-none-any.whl
+Collecting netifaces
+  Using cached netifaces-0.11.0-cp312-cp312-linux_x86_64.whl
+Using cached psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+Using cached py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Installing collected packages: py-cpuinfo, netifaces, GPUtil, psutil
+Successfully installed GPUtil-1.4.0 netifaces-0.11.0 psutil-7.0.0 py-cpuinfo-9.0.0

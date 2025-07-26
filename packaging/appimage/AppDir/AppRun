@@ -28,4 +28,4 @@ mkdir -p "${HOME}/.local/share/system-companion/logs"
 mkdir -p "${HOME}/.local/share/system-companion/data"
 
 # Launch the application
-exec "${HERE}/usr/bin/python3" "${HERE}/usr/lib/python3.11/site-packages/system_companion/main.py" "$@" 
+exec python3 "${HERE}/usr/lib/python3.11/site-packages/system_companion/main.py" "$@" 

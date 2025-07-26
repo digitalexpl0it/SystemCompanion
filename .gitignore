@@ -153,6 +153,14 @@ build-aux/
 meson-private/
 meson-logs/
 
+# AppImage build artifacts
+packaging/appimage/build/
+packaging/appimage/dist/
+packaging/appimage/appimagetool
+packaging/appimage/temp_venv/
+packaging/appimage/test_appdir/
+packaging/appimage/test.AppImage
+
 # OS specific
 .DS_Store
 .DS_Store?

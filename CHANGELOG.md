@@ -14,12 +14,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - View log files functionality
 - Comprehensive documentation structure
 - Development guide for contributors
+- AppImage packaging and distribution
+- Icon conversion and optimization tools
+- AppImage testing and validation scripts
 
 ### Changed
 - Updated project metadata and URLs
 - Improved documentation organization
 - Enhanced settings widget functionality
 - Better error handling and user feedback
+- Updated README with AppImage installation instructions
+- Enhanced gitignore for build artifacts
 
 ### Fixed
 - Configuration loading issues

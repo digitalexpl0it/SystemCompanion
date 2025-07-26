@@ -22,10 +22,10 @@
       <li>Modern GTK4/libadwaita user interface</li>
     </ul>
   </description>
-  <url type="homepage">https://github.com/DigitalExpl0it/system-companion</url>
-  <url type="bugtracker">https://github.com/DigitalExpl0it/system-companion/issues</url>
-  <url type="help">https://github.com/DigitalExpl0it/system-companion/tree/main/docs</url>
-  <url type="donation">https://github.com/DigitalExpl0it/system-companion</url>
+  <url type="homepage">https://github.com/digitalexpl0it/SystemCompanion</url>
+<url type="bugtracker">https://github.com/digitalexpl0it/SystemCompanion/issues</url>
+<url type="help">https://github.com/digitalexpl0it/SystemCompanion/tree/main/docs</url>
+<url type="donation">https://github.com/digitalexpl0it/SystemCompanion</url>
   <developer_name>DigitalExpl0it</developer_name>
   <content_rating type="oars-1.1" />
   <releases>
@@ -64,7 +64,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>System Companion Dashboard</caption>
-      <image>https://github.com/DigitalExpl0it/system-companion/raw/main/screenshots/dashboard.png</image>
+      <image>https://github.com/digitalexpl0it/SystemCompanion/raw/main/screenshots/dashboard.png</image>
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">org.systemcompanion.app.desktop</launchable>

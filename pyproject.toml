@@ -72,12 +72,12 @@ docs = [
 system-companion = "system_companion.main:main"
 
 [project.urls]
-Homepage = "https://github.com/DigitalExpl0it/system-companion"
-Repository = "https://github.com/DigitalExpl0it/system-companion.git"
-Documentation = "https://github.com/DigitalExpl0it/system-companion/tree/main/docs"
-"Bug Tracker" = "https://github.com/DigitalExpl0it/system-companion/issues"
-"Discussions" = "https://github.com/DigitalExpl0it/system-companion/discussions"
-"Changelog" = "https://github.com/DigitalExpl0it/system-companion/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/digitalexpl0it/SystemCompanion"
+Repository = "https://github.com/digitalexpl0it/SystemCompanion.git"
+Documentation = "https://github.com/digitalexpl0it/SystemCompanion/tree/main/docs"
+"Bug Tracker" = "https://github.com/digitalexpl0it/SystemCompanion/issues"
+"Discussions" = "https://github.com/digitalexpl0it/SystemCompanion/discussions"
+"Changelog" = "https://github.com/digitalexpl0it/SystemCompanion/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["src"]

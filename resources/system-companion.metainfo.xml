@@ -22,9 +22,9 @@
       <li>Security and privacy monitoring</li>
     </ul>
   </description>
-  <url type="homepage">https://github.com/yourusername/system-companion</url>
-  <url type="bugtracker">https://github.com/yourusername/system-companion/issues</url>
-  <url type="help">https://github.com/yourusername/system-companion/docs</url>
+  <url type="homepage">https://github.com/digitalexpl0it/SystemCompanion</url>
+<url type="bugtracker">https://github.com/digitalexpl0it/SystemCompanion/issues</url>
+<url type="help">https://github.com/digitalexpl0it/SystemCompanion/docs</url>
   <developer_name>System Companion Team</developer_name>
   <content_rating type="oars-1.1" />
   <releases>
@@ -49,7 +49,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Main dashboard showing system overview</caption>
-      <image>https://github.com/yourusername/system-companion/raw/main/screenshots/main-dashboard.png</image>
+      <image>https://github.com/digitalexpl0it/SystemCompanion/raw/main/screenshots/main-dashboard.png</image>
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">system-companion.desktop</launchable>

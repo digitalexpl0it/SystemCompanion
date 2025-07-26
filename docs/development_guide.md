@@ -37,8 +37,8 @@ sudo apt install -y python3-pip python3-venv meson ninja-build \
 ### Quick Start
 ```bash
 # Clone and setup
-git clone https://github.com/yourusername/system-companion.git
-cd system-companion
+git clone https://github.com/digitalexpl0it/SystemCompanion.git
+cd SystemCompanion
 ./scripts/setup_dev_environment.sh
 
 # Activate virtual environment

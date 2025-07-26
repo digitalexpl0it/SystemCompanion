@@ -15,7 +15,8 @@ NC='\033[0m' # No Color
 # Configuration
 APP_NAME="System_Companion"
 APP_VERSION="0.1.0"
-APP_DIR="AppDir"
+SOURCE_APP_DIR="AppDir"
+BUILD_APP_DIR="build/AppDir"
 BUILD_DIR="build"
 DIST_DIR="dist"
 
@@ -23,8 +24,8 @@ echo -e "${BLUE}🚀 System Companion AppImage Builder${NC}"
 echo "=========================================="
 
 # Check if we're in the right directory
-if [ ! -f "AppRun" ]; then
-    echo -e "${RED}❌ Please run this script from the appimage directory${NC}"
+if [ ! -f "$SOURCE_APP_DIR/AppRun" ]; then
+    echo -e "${RED}❌ AppRun file not found in $SOURCE_APP_DIR directory${NC}"
     exit 1
 fi
 
@@ -37,45 +38,53 @@ mkdir -p "$BUILD_DIR" "$DIST_DIR"
 if ! command -v appimagetool &> /dev/null; then
     echo -e "${YELLOW}📦 Installing appimagetool...${NC}"
     
-    # Download appimagetool
-    wget -O appimagetool "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
-    chmod +x appimagetool
-    
-    # Move to a location in PATH
-    sudo mv appimagetool /usr/local/bin/
+    # Check if appimagetool exists in current directory
+    if [ -f "./appimagetool" ]; then
+        echo -e "${GREEN}✅ Using existing appimagetool${NC}"
+        chmod +x ./appimagetool
+        export PATH="$PWD:$PATH"
+    else
+        # Download appimagetool
+        wget -O appimagetool "https://github.com/AppImage/AppImageKit/releases/download/12/appimagetool-x86_64.AppImage"
+        chmod +x appimagetool
+        export PATH="$PWD:$PATH"
+    fi
 fi
 
 # Create AppDir structure
 echo -e "${YELLOW}🏗️  Creating AppDir structure...${NC}"
-mkdir -p "$APP_DIR/usr/bin"
-mkdir -p "$APP_DIR/usr/lib/python3.11/site-packages"
-mkdir -p "$APP_DIR/usr/share/applications"
-mkdir -p "$APP_DIR/usr/share/icons/hicolor/scalable/apps"
-mkdir -p "$APP_DIR/usr/share/system-companion/css"
-mkdir -p "$APP_DIR/etc/xdg"
+rm -rf "$BUILD_APP_DIR"
+mkdir -p "$BUILD_APP_DIR/usr/bin"
+mkdir -p "$BUILD_APP_DIR/usr/lib/python3.11/site-packages"
+mkdir -p "$BUILD_APP_DIR/usr/share/applications"
+mkdir -p "$BUILD_APP_DIR/usr/share/icons/hicolor/scalable/apps"
+mkdir -p "$BUILD_APP_DIR/usr/share/system-companion/css"
+mkdir -p "$BUILD_APP_DIR/etc/xdg"
 
 # Copy application files
 echo -e "${BLUE}📋 Copying application files...${NC}"
 
 # Copy Python application
-cp -r ../../src/system_companion "$APP_DIR/usr/lib/python3.11/site-packages/"
+cp -r ../../src/system_companion "$BUILD_APP_DIR/usr/lib/python3.11/site-packages/"
 
 # Copy launcher script
-cp ../../run.py "$APP_DIR/usr/bin/system-companion"
-chmod +x "$APP_DIR/usr/bin/system-companion"
+cp ../../run.py "$BUILD_APP_DIR/usr/bin/system-companion"
+chmod +x "$BUILD_APP_DIR/usr/bin/system-companion"
 
 # Copy desktop file
-cp system-companion.desktop "$APP_DIR/usr/share/applications/"
+cp "$SOURCE_APP_DIR/system-companion.desktop" "$BUILD_APP_DIR/usr/share/applications/"
+cp "$SOURCE_APP_DIR/system-companion.desktop" "$BUILD_APP_DIR/"
 
 # Copy icon
-cp ../../resources/icons/scalable/apps/system-companion.svg "$APP_DIR/usr/share/icons/hicolor/scalable/apps/"
+cp ../../resources/icons/scalable/apps/system-companion.svg "$BUILD_APP_DIR/usr/share/icons/hicolor/scalable/apps/"
+cp ../../resources/icons/256x256/apps/system-companion.png "$BUILD_APP_DIR/system-companion.png"
 
 # Copy CSS
-cp ../../resources/css/style.css "$APP_DIR/usr/share/system-companion/css/"
+cp ../../resources/css/style.css "$BUILD_APP_DIR/usr/share/system-companion/css/"
 
 # Copy AppRun
-cp AppRun "$APP_DIR/"
-chmod +x "$APP_DIR/AppRun"
+cp "$SOURCE_APP_DIR/AppRun" "$BUILD_APP_DIR/"
+chmod +x "$BUILD_APP_DIR/AppRun"
 
 # Install Python dependencies
 echo -e "${BLUE}📦 Installing Python dependencies...${NC}"
@@ -85,7 +94,7 @@ python3 -m venv temp_venv
 source temp_venv/bin/activate
 
 # Install dependencies
-pip install --target="$APP_DIR/usr/lib/python3.11/site-packages" \
+pip install --target="$BUILD_APP_DIR/usr/lib/python3.11/site-packages" \
     psutil>=5.9.0 \
     py-cpuinfo>=9.0.0 \
     GPUtil>=1.4.0 \
@@ -100,11 +109,24 @@ echo -e "${BLUE}🔧 Copying system libraries...${NC}"
 
 # Copy GTK4 and related libraries
 SITE_PACKAGES=$(python3 -c "import site; print(site.getsitepackages()[0])")
-cp -r "$SITE_PACKAGES/gi" "$APP_DIR/usr/lib/python3.11/site-packages/"
-cp -r "$SITE_PACKAGES/GLib" "$APP_DIR/usr/lib/python3.11/site-packages/" 2>/dev/null || true
-cp -r "$SITE_PACKAGES/GObject" "$APP_DIR/usr/lib/python3.11/site-packages/" 2>/dev/null || true
-cp -r "$SITE_PACKAGES/Gtk" "$APP_DIR/usr/lib/python3.11/site-packages/" 2>/dev/null || true
-cp -r "$SITE_PACKAGES/Adw" "$APP_DIR/usr/lib/python3.11/site-packages/" 2>/dev/null || true
+DIST_PACKAGES="/usr/lib/python3/dist-packages"
+echo "Found site-packages: $SITE_PACKAGES"
+echo "Found dist-packages: $DIST_PACKAGES"
+
+# Copy GTK4 bindings if they exist
+for pkg in gi GLib GObject Gtk Adw; do
+    # Try site-packages first
+    if [ -d "$SITE_PACKAGES/$pkg" ]; then
+        echo "Copying $pkg from site-packages..."
+        cp -r "$SITE_PACKAGES/$pkg" "$BUILD_APP_DIR/usr/lib/python3.11/site-packages/" 2>/dev/null || true
+    # Try dist-packages if not found in site-packages
+    elif [ -d "$DIST_PACKAGES/$pkg" ]; then
+        echo "Copying $pkg from dist-packages..."
+        cp -r "$DIST_PACKAGES/$pkg" "$BUILD_APP_DIR/usr/lib/python3.11/site-packages/" 2>/dev/null || true
+    else
+        echo "Package $pkg not found in either location"
+    fi
+done
 
 # Copy shared libraries
 echo -e "${BLUE}📚 Copying shared libraries...${NC}"
@@ -114,13 +136,13 @@ copy_library() {
     local lib="$1"
     if [ -f "$lib" ]; then
         local libname=$(basename "$lib")
-        cp "$lib" "$APP_DIR/usr/lib/"
+        cp "$lib" "$BUILD_APP_DIR/usr/lib/"
         echo "Copied: $libname"
     fi
 }
 
 # Copy common GTK4 libraries
-mkdir -p "$APP_DIR/usr/lib"
+mkdir -p "$BUILD_APP_DIR/usr/lib"
 for lib in /usr/lib/x86_64-linux-gnu/libgtk-4-1.so* \
            /usr/lib/x86_64-linux-gnu/libgdk-4-1.so* \
            /usr/lib/x86_64-linux-gnu/libadwaita-1.so* \
@@ -135,7 +157,7 @@ done
 
 # Create AppImage
 echo -e "${BLUE}📦 Creating AppImage...${NC}"
-appimagetool "$APP_DIR" "$DIST_DIR/${APP_NAME}-${APP_VERSION}-x86_64.AppImage"
+appimagetool "$BUILD_APP_DIR" "$DIST_DIR/${APP_NAME}-${APP_VERSION}-x86_64.AppImage"
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✅ AppImage created successfully!${NC}"
@@ -147,7 +169,7 @@ fi
 
 # Clean up
 echo -e "${YELLOW}🧹 Cleaning up...${NC}"
-rm -rf "$APP_DIR"
+rm -rf "$BUILD_APP_DIR"
 
 echo ""
 echo -e "${GREEN}🎉 AppImage build completed!${NC}"
