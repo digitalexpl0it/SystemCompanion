@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - AppImage packaging and distribution
 - Icon conversion and optimization tools
 - AppImage testing and validation scripts
+- Professional screenshots for documentation and marketing
+- Screenshot management tools and guidelines
 
 ### Changed
 - Updated project metadata and URLs

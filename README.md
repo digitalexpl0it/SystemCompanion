@@ -61,7 +61,45 @@ System Companion consolidates scattered system monitoring and maintenance tools 
 
 ## Screenshots
 
-*Screenshots will be added as the application develops*
+### Main Dashboard
+![System Companion Dashboard](screenshots/dashboard.png)
+*Real-time system health monitoring with modern GTK4 interface*
+
+### Performance Monitoring
+![Performance Tab](screenshots/performance.png)
+*Comprehensive performance analysis and benchmarking tools*
+
+### System Maintenance
+![Maintenance Tab](screenshots/maintenance.png)
+*Automated maintenance tasks and system optimization*
+
+### Security Monitoring
+![Security Tab](screenshots/security.png)
+*Security vulnerability scanning and package management*
+
+### Settings Configuration
+![Settings Tab](screenshots/settings.png)
+*Application configuration and user preferences*
+
+### Additional Features
+
+#### Health Details
+![Health Details](screenshots/health-details.png)
+*Detailed system health monitoring and diagnostics*
+
+#### Performance Benchmark
+![Benchmark Results](screenshots/benchmark-results.png)
+*System performance benchmarking and analysis results*
+
+#### Maintenance Tasks
+![Maintenance Tasks](screenshots/maintenance-tasks.png)
+*Automated maintenance task management and scheduling*
+
+#### Security Scan
+![Security Scan](screenshots/security-scan.png)
+*Security vulnerability scanning and threat detection*
+
+> **Note**: Screenshots show the current development version. The interface may evolve as features are added and refined.
 
 ## Quick Start
 

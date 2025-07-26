@@ -179,4 +179,7 @@ Thumbs.db
 
 # Configuration files with sensitive data
 config.local.json
-secrets.json 
+secrets.json
+
+# Screenshots (keep these in git for documentation)
+# screenshots/ 
