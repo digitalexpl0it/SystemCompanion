@@ -198,6 +198,31 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 > **Note**: The Flatpak package provides a sandboxed environment and will be available on Flathub once the application is ready for distribution.
 
+### AppImage Installation
+
+#### Build from Source
+```bash
+# Navigate to the AppImage directory
+cd packaging/appimage
+
+# Run the build script
+./build.sh
+
+# Make the AppImage executable
+chmod +x dist/System_Companion-0.1.0-x86_64.AppImage
+
+# Run the application
+./dist/System_Companion-0.1.0-x86_64.AppImage
+```
+
+#### Prerequisites for Building
+```bash
+# Install required packages
+sudo apt install -y python3-pip python3-venv wget libgtk-4-dev libadwaita-1-dev python3-gi python3-gi-cairo
+```
+
+> **Note**: AppImages are portable and can run on most Linux distributions without installation. They include all dependencies and can be shared as a single file.
+
 ## Development
 
 ### Project Structure
