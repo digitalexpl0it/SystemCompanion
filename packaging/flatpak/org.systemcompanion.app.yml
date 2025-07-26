@@ -1,0 +1,86 @@
+app-id: org.systemcompanion.app
+runtime: org.gnome.Platform
+runtime-version: '45'
+sdk: org.gnome.Sdk
+command: system-companion
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --socket=session-bus
+  - --socket=system-bus
+  - --filesystem=home
+  - --filesystem=xdg-config
+  - --filesystem=xdg-data
+  - --filesystem=xdg-cache
+  - --device=dri
+  - --device=input
+  - --device=shm
+  - --allow=devel
+modules:
+  - name: python3-psutil
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=/app psutil
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/90/63/ce7b1ee78286bf7963bbce52dc4778d3794efb5a39b512a57a5daa40944d/psutil-5.9.5.tar.gz
+        sha256: 5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af1e966e4c5f4a6
+  - name: python3-py-cpuinfo
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=/app py-cpuinfo
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/37/5b/6b8e0f0c4e6b8c0c4e6b8c0c4e6b8c0c4e6b8c0c4e6b8c0c4e6b8c0c4e6b8c0c/py-cpuinfo-9.0.0.tar.gz
+        sha256: 3cdbbf3fac90dc6f118bfd64384f309edeadd9022627c395a8616e6f84ba423
+  - name: python3-gputil
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=/app GPUtil
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/ed/65/9bca0b0818c5e4c4e8c0c4e6b8c0c4e6b8c0c4e6b8c0c4e6b8c0c4e6b8c0c4e6b8c0c/GPUtil-1.4.0.tar.gz
+        sha256: 3cdbbf3fac90dc6f118bfd64384f309edeadd9022627c395a8616e6f84ba423
+  - name: python3-netifaces
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=/app netifaces
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/ed/65/9bca0b0818c5e4c4e8c0c4e6b8c0c4e6b8c0c4e6b8c0c4e6b8c0c4e6b8c0c4e6b8c0c/netifaces-0.11.0.tar.gz
+        sha256: 3cdbbf3fac90dc6f118bfd64384f309edeadd9022627c395a8616e6f84ba423
+  - name: system-companion
+    buildsystem: simple
+    build-commands:
+      - install -D run.py /app/bin/system-companion
+      - install -D src/system_companion/main.py /app/lib/python3.11/site-packages/system_companion/main.py
+      - cp -r src/system_companion /app/lib/python3.11/site-packages/
+      - install -D resources/css/style.css /app/share/system-companion/css/style.css
+      - install -D resources/icons/scalable/apps/system-companion.svg /app/share/icons/hicolor/scalable/apps/org.systemcompanion.app.svg
+      - install -D resources/system-companion.desktop /app/share/applications/org.systemcompanion.app.desktop
+      - install -D resources/system-companion.metainfo.xml /app/share/metainfo/org.systemcompanion.app.metainfo.xml
+    sources:
+      - type: dir
+        path: .
+        exclude:
+          - .git
+          - build
+          - dist
+          - venv
+          - .venv
+          - __pycache__
+          - *.pyc
+          - .pytest_cache
+          - .mypy_cache
+          - .coverage
+          - .tox
+          - .eggs
+          - *.egg-info
+          - packaging
+          - tests
+          - docs
+          - CHANGELOG.md
+          - GITHUB_DESCRIPTION.md 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.systemcompanion.app</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <name>System Companion</name>
+  <summary>System health and maintenance dashboard</summary>
+  <description>
+    <p>
+      System Companion is a fast, optimized, and beautiful system health & maintenance dashboard for Ubuntu Linux. 
+      Built with GTK4 and libadwaita, it provides real-time system monitoring, predictive maintenance alerts, 
+      intelligent cleanup recommendations, and performance optimization.
+    </p>
+    <p>Key features:</p>
+    <ul>
+      <li>Real-time CPU, memory, and disk usage monitoring</li>
+      <li>Network performance metrics and bandwidth analysis</li>
+      <li>System health assessment and service monitoring</li>
+      <li>Performance benchmarking and optimization</li>
+      <li>Security monitoring and vulnerability scanning</li>
+      <li>Automated maintenance and cleanup tools</li>
+      <li>Modern GTK4/libadwaita user interface</li>
+    </ul>
+  </description>
+  <url type="homepage">https://github.com/DigitalExpl0it/system-companion</url>
+  <url type="bugtracker">https://github.com/DigitalExpl0it/system-companion/issues</url>
+  <url type="help">https://github.com/DigitalExpl0it/system-companion/tree/main/docs</url>
+  <url type="donation">https://github.com/DigitalExpl0it/system-companion</url>
+  <developer_name>DigitalExpl0it</developer_name>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="0.1.0" date="2025-07-25">
+      <description>
+        <p>Initial release with core system monitoring features:</p>
+        <ul>
+          <li>Real-time system monitoring dashboard</li>
+          <li>CPU, memory, and disk usage tracking</li>
+          <li>Network interface monitoring</li>
+          <li>System health assessment</li>
+          <li>Performance benchmarking</li>
+          <li>Security monitoring and fixes</li>
+          <li>System maintenance tools</li>
+          <li>Settings management</li>
+          <li>GTK4/libadwaita user interface</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+  <categories>
+    <category>System</category>
+    <category>Utility</category>
+    <category>Monitor</category>
+  </categories>
+  <keywords>
+    <keyword>system</keyword>
+    <keyword>monitor</keyword>
+    <keyword>health</keyword>
+    <keyword>maintenance</keyword>
+    <keyword>dashboard</keyword>
+    <keyword>gtk4</keyword>
+    <keyword>ubuntu</keyword>
+    <keyword>linux</keyword>
+  </keywords>
+  <screenshots>
+    <screenshot type="default">
+      <caption>System Companion Dashboard</caption>
+      <image>https://github.com/DigitalExpl0it/system-companion/raw/main/screenshots/dashboard.png</image>
+    </screenshot>
+  </screenshots>
+  <launchable type="desktop-id">org.systemcompanion.app.desktop</launchable>
+  <provides>
+    <binary>system-companion</binary>
+  </provides>
+</component> 

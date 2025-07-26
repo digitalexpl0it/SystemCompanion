@@ -172,7 +172,31 @@ cd src && PYTHONPATH=. python3 system_companion/main.py
 
 ### Flatpak Installation
 
-*Flatpak package will be available once the application is ready for distribution*
+#### Build from Source
+```bash
+# Navigate to the Flatpak directory
+cd packaging/flatpak
+
+# Run the build script
+./build.sh
+
+# Install the built package
+flatpak install --user system-companion-0.1.0.flatpak
+
+# Run the application
+flatpak run org.systemcompanion.app
+```
+
+#### Prerequisites for Building
+```bash
+# Install Flatpak and builder
+sudo apt install flatpak flatpak-builder
+
+# Add Flathub repository
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+> **Note**: The Flatpak package provides a sandboxed environment and will be available on Flathub once the application is ready for distribution.
 
 ## Development
 

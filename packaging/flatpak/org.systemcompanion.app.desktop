@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=System Companion
+Comment=System health and maintenance dashboard
+GenericName=System Monitor
+Exec=system-companion
+Icon=org.systemcompanion.app
+Terminal=false
+StartupNotify=true
+Categories=System;Utility;Monitor;
+Keywords=system;monitor;health;maintenance;dashboard;gtk4;
+MimeType=
+StartupWMClass=system-companion 
