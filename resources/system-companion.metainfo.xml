@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>dev.systemcompanion.app</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <name>System Companion</name>
+  <summary>System health and maintenance dashboard</summary>
+  <description>
+    <p>
+      System Companion is a fast, optimized, and beautiful system health &amp; maintenance 
+      dashboard for Ubuntu Linux. It consolidates scattered system monitoring and 
+      maintenance tools into a single, modern interface.
+    </p>
+    <p>
+      Features include:
+    </p>
+    <ul>
+      <li>Real-time system health monitoring</li>
+      <li>Predictive maintenance alerts</li>
+      <li>Intelligent cleanup recommendations</li>
+      <li>Performance optimization tools</li>
+      <li>Security and privacy monitoring</li>
+    </ul>
+  </description>
+  <url type="homepage">https://github.com/yourusername/system-companion</url>
+  <url type="bugtracker">https://github.com/yourusername/system-companion/issues</url>
+  <url type="help">https://github.com/yourusername/system-companion/docs</url>
+  <developer_name>System Companion Team</developer_name>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="0.1.0" date="2024-01-01">
+      <description>
+        <p>Initial release with basic system monitoring capabilities.</p>
+      </description>
+    </release>
+  </releases>
+  <categories>
+    <category>System</category>
+    <category>Monitor</category>
+  </categories>
+  <keywords>
+    <keyword>system</keyword>
+    <keyword>monitor</keyword>
+    <keyword>health</keyword>
+    <keyword>maintenance</keyword>
+    <keyword>performance</keyword>
+    <keyword>optimization</keyword>
+  </keywords>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Main dashboard showing system overview</caption>
+      <image>https://github.com/yourusername/system-companion/raw/main/screenshots/main-dashboard.png</image>
+    </screenshot>
+  </screenshots>
+  <launchable type="desktop-id">system-companion.desktop</launchable>
+  <provides>
+    <binary>system-companion</binary>
+  </provides>
+  <requires>
+    <display_length compare="ge">1024</display_length>
+    <display_length compare="ge">768</display_length>
+  </requires>
+</component> 

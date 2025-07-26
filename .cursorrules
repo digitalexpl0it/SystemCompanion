@@ -1,0 +1,168 @@
+# System Companion - Cursor IDE Rules
+
+## Project Overview
+System Companion is a fast, optimized, and beautiful system health & maintenance dashboard for Ubuntu Linux. Built with GTK4, Python, and modern design principles.
+
+## Core Principles
+- **Performance First**: Every line of code should be optimized for speed and efficiency
+- **Minimal Bloat**: Keep dependencies minimal and code lean
+- **Modern UI**: Clean, simple, and beautiful interface using GTK4/libadwaita
+- **User Experience**: Intuitive and responsive design
+- **Maintainable Code**: Clean, well-documented, and modular architecture
+
+## Technology Stack
+- **Frontend**: GTK4 + libadwaita (Python PyGObject)
+- **Backend**: Python 3.11+
+- **System Integration**: psutil, py-cpuinfo, systemd APIs
+- **Data**: SQLite for local storage, JSON for config
+- **Build**: Meson + Ninja
+- **Testing**: pytest
+- **Packaging**: Flatpak
+
+## Code Style & Standards
+
+### Python Code
+- Use Python 3.11+ features and type hints
+- Follow PEP 8 with 4-space indentation
+- Use async/await for I/O operations
+- Implement proper error handling with custom exceptions
+- Use dataclasses for data structures
+- Prefer composition over inheritance
+- Keep functions small and focused (max 50 lines)
+- Use context managers for resource management
+
+### GTK4/UI Code
+- Use libadwaita widgets for modern look
+- Implement responsive layouts with GtkBox and GtkGrid
+- Use CSS for styling (avoid inline styles)
+- Implement proper signal handling
+- Use GtkBuilder for complex UI layouts
+- Follow GNOME Human Interface Guidelines
+- Use proper accessibility features
+
+### Performance Guidelines
+- Cache expensive operations
+- Use lazy loading for UI components
+- Implement background processing for heavy tasks
+- Minimize UI updates (batch when possible)
+- Use efficient data structures
+- Profile code regularly
+- Avoid blocking the main thread
+
+### Architecture Patterns
+- **MVC Pattern**: Separate UI, logic, and data
+- **Observer Pattern**: For real-time updates
+- **Factory Pattern**: For widget creation
+- **Singleton Pattern**: For system monitors
+- **Plugin Architecture**: For extensibility
+
+## File Organization
+```
+system_companion/
+├── src/
+│   ├── main.py                 # Application entry point
+│   ├── core/                   # Core system monitoring
+│   ├── ui/                     # GTK4 UI components
+│   ├── data/                   # Data management
+│   ├── utils/                  # Utility functions
+│   └── plugins/                # Plugin system
+├── resources/                  # UI resources, icons, CSS
+├── tests/                      # Test suite
+├── docs/                       # Documentation
+├── build-aux/                  # Build system files
+└── packaging/                  # Distribution files
+```
+
+## Naming Conventions
+- **Files**: snake_case (e.g., `system_monitor.py`)
+- **Classes**: PascalCase (e.g., `SystemMonitor`)
+- **Functions**: snake_case (e.g., `get_cpu_usage`)
+- **Constants**: UPPER_SNAKE_CASE (e.g., `MAX_RETRY_ATTEMPTS`)
+- **Variables**: snake_case (e.g., `cpu_usage`)
+- **UI IDs**: kebab-case (e.g., `main-window`)
+
+## Documentation Standards
+- Use docstrings for all public functions and classes
+- Include type hints in docstrings
+- Document complex algorithms
+- Maintain README.md with setup instructions
+- Use inline comments sparingly but effectively
+
+## Testing Requirements
+- Unit tests for all core functionality
+- Integration tests for UI components
+- Performance benchmarks for critical paths
+- Test coverage minimum 80%
+- Use pytest fixtures for common setup
+
+## Error Handling
+- Use custom exception classes
+- Implement proper logging
+- Provide user-friendly error messages
+- Handle edge cases gracefully
+- Implement retry mechanisms where appropriate
+
+## Security Considerations
+- Validate all user inputs
+- Use PolicyKit for privileged operations
+- Implement proper file permissions
+- Sanitize data before display
+- Follow principle of least privilege
+
+## UI/UX Guidelines
+- Use consistent spacing and padding
+- Implement proper loading states
+- Provide clear feedback for user actions
+- Use appropriate icons and visual cues
+- Ensure accessibility compliance
+- Support both light and dark themes
+- Implement responsive design
+
+## Performance Targets
+- Application startup: < 2 seconds
+- UI responsiveness: < 100ms for interactions
+- Memory usage: < 100MB baseline
+- CPU usage: < 5% when idle
+- Real-time updates: < 1 second intervals
+
+## Code Review Checklist
+- [ ] Performance impact considered
+- [ ] Error handling implemented
+- [ ] Tests written and passing
+- [ ] Documentation updated
+- [ ] UI/UX guidelines followed
+- [ ] Security considerations addressed
+- [ ] Code style consistent
+- [ ] No memory leaks
+- [ ] Proper resource cleanup
+
+## Dependencies Management
+- Keep dependencies minimal
+- Pin dependency versions
+- Regular security updates
+- Document dependency purposes
+- Use virtual environments for development
+
+## Development Environment Setup
+- **Ubuntu Out-of-Box Assumption**: This machine is a fresh Ubuntu install like most users
+- **Missing Dependencies**: Common libraries like Python dev packages, GTK4, meson, ninja may not be installed
+- **Auto-Detection**: Always check for required tools before proceeding with development
+- **Installation Commands**: Provide clear commands to install missing dependencies
+- **Fallback Options**: Offer alternative approaches if system packages aren't available
+
+## Build & Distribution
+- Use Meson build system
+- Implement proper versioning
+- Create Flatpak package
+- Provide installation instructions
+- Include system requirements
+- Always check and install missing dependencies first
+
+## Monitoring & Logging
+- Implement structured logging
+- Use appropriate log levels
+- Include performance metrics
+- Provide debugging information
+- Respect user privacy
+
+Remember: Every decision should prioritize performance, user experience, and code quality. System Companion should feel fast, look beautiful, and be a joy to use. 

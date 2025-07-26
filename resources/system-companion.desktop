@@ -1,0 +1,21 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=System Companion
+Name[en_US]=System Companion
+Comment=System health and maintenance dashboard
+Comment[en_US]=System health and maintenance dashboard
+GenericName=System Monitor
+GenericName[en_US]=System Monitor
+Keywords=system;monitor;health;maintenance;performance;optimization
+Keywords[en_US]=system;monitor;health;maintenance;performance;optimization
+Exec=system-companion
+Icon=system-companion
+Terminal=false
+StartupNotify=true
+StartupWMClass=system-companion
+Categories=System;Monitor;GTK;
+MimeType=
+X-GNOME-UsesNotifications=true
+X-GNOME-SingleWindow=true
+X-Desktop-File-Install-Version=0.24 

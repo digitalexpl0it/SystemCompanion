@@ -1,0 +1,192 @@
+/* System Companion - GTK4 Dark Mode Stylesheet (Clean) */
+
+.main-window, .content-area, .sidebar, .header-bar, .dashboard-content-bg, .dashboard-scroll-bg {
+    background-color: #181818;
+    color: #fff;
+}
+
+.dashboard-card, box.dashboard-card,
+.chart-container,
+.metric-display,
+.metric-chart,
+.settings-grid,
+.recommendations-list,
+.issues-list,
+.dashboard-main-card,
+.dashboard-outer-card {
+    background-color: #232323;
+    color: #fff;
+    border-radius: 12px;
+    border: 1px solid #444;
+    padding: 16px;
+    margin: 8px;
+}
+
+.task-card, box.task-card {
+    background-color: #232323;
+    color: #fff;
+    border-radius: 8px;
+    border: 1px solid #444;
+    padding: 8px;
+    margin: 2px;
+}
+
+.task-card-header {
+    background-color: #2a2a2a;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+}
+
+.compact-button {
+    padding: 2px 6px;
+    font-size: 11px;
+    min-height: 20px;
+}
+
+/* App title styling with animations and effects */
+.app-title {
+    color: #00bfff;
+    font-weight: bold;
+    text-shadow: 
+        0 0 1px #000,
+        0 0 2px #000,
+        0 0 3px #000,
+        0 2px 4px rgba(0, 0, 0, 0.3);
+    animation: titleGlow 3s ease-in-out infinite alternate, colorFlow 6s ease-in-out infinite;
+    letter-spacing: 1px;
+}
+
+@keyframes colorFlow {
+    0% {
+        color: #00bfff; /* Electric blue */
+    }
+    25% {
+        color: #4b0082; /* Deep indigo */
+    }
+    50% {
+        color: #8a2be2; /* Purple */
+    }
+    75% {
+        color: #00ced1; /* Teal */
+    }
+    100% {
+        color: #00bfff; /* Back to electric blue */
+    }
+}
+
+@keyframes titleGlow {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5));
+    }
+    100% {
+        filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.8));
+    }
+}
+
+
+
+.dashboard-main-card {
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+.dashboard-outer-card {
+    background-color: #232323;
+    color: #fff;
+    border-radius: 18px;
+    padding: 8px 24px 16px 24px;
+    margin-bottom: 24px;
+    margin-top: 0;
+}
+
+.dashboard-card label, box.dashboard-card label,
+.task-card label, box.task-card label,
+.chart-container label,
+.metric-display label,
+.metric-chart label,
+.settings-grid label,
+.recommendations-list label,
+.issues-list label {
+    color: #fff;
+}
+
+.header-bar {
+    border-bottom: 1px solid #444;
+}
+
+.sidebar {
+    border-right: 1px solid #444;
+    background-color: #1a1a1a;
+}
+
+.dashboard-tab-bar {
+    background-color: #232323;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 0;
+}
+
+.dashboard-tab-btn {
+    background-color: #2a2a2a;
+    color: #ccc;
+    border: 1px solid #444;
+    border-radius: 10px;
+    margin-right: 8px;
+    padding: 12px 24px;
+    font-weight: 500;
+}
+.dashboard-tab-btn:not(.active) {
+    background-color: #444;
+    color: #ccc;
+    border: 1px solid #bbb;
+}
+.dashboard-tab-btn.active {
+    background-color: #3584e4;
+    color: #fff;
+    border: 1px solid #3584e4;
+}
+.dashboard-tab-btn:last-child {
+    margin-right: 0;
+}
+
+.pill {
+    border-radius: 30px;
+    padding: 2px 10px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85em;
+    margin-left: 4px;
+    margin-right: 4px;
+    background: #888;
+}
+.pill-ok { background: #2ecc40; }
+.pill-OK { background: #2ecc40; }
+.pill-warning { background: #ffb400; }
+.pill-unknown { background: #888; }
+.pill-critical { background: #e74c3c; }
+.pill-high { background: #e74c3c; }
+.pill-medium { background: #f39c12; }
+.pill-low { background: #3498db; }
+
+/* Status pills */
+.pill-pending { background: #f39c12; }
+.pill-running { background: #3498db; }
+.pill-completed { background: #2ecc40; }
+
+/* Health widget header styling */
+.health-header {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+}
+
+.dashboard-card .title-2 {
+    background-color: #2a2a2a;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    font-weight: 600;
+} 
